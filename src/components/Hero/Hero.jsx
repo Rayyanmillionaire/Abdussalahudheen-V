@@ -3,7 +3,7 @@ import heroImage from "../../assets/hero.png";
 
 function Hero() {
   return (
-    <section className="hero">
+    <section id="home" className="hero">
 
       <div className="hero-blur hero-blur-1"></div>
       <div className="hero-blur hero-blur-2"></div>
@@ -23,19 +23,29 @@ function Hero() {
         </h1>
 
         <p>
-          SecureLife Advisors helps individuals and families
-          with Term Insurance, Health Insurance, Mutual Funds,
-          and Retirement Planning.
+          SecureLife Advisors helps individuals and families with
+          Term Insurance, Health Insurance, Mutual Funds, and
+          Retirement Planning through personalized financial guidance.
         </p>
 
         <div className="hero-buttons">
-          <button className="primary-btn">
-            Get Free Consultation
-          </button>
 
-          <button className="secondary-btn">
+          <a
+            href="https://wa.me/919645622444"
+            target="_blank"
+            rel="noreferrer"
+            className="primary-btn"
+          >
+            Get Free Consultation
+          </a>
+
+          <a
+            href="#services"
+            className="secondary-btn"
+          >
             Explore Services
-          </button>
+          </a>
+
         </div>
 
         <div className="hero-trust">
@@ -60,7 +70,10 @@ function Hero() {
       </div>
 
       <div className="hero-image">
-        <img src={heroImage} alt="Financial Planning" />
+        <img
+          src={heroImage}
+          alt="Financial Planning and Wealth Management"
+        />
       </div>
 
     </section>
