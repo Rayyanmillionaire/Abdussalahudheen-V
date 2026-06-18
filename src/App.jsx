@@ -1,0 +1,75 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Navbar from "./components/Navbar/Navbar";
+import Hero from "./components/Hero/Hero";
+import Importance from "./components/Importance/Importance";
+import Services from "./components/Services/Services";
+import WhyChooseUs from "./components/WhyChooseUs/WhyChooseUs";
+import Stats from "./components/Stats/Stats";
+import Advisor from "./components/Advisor/Advisor";
+import Testimonials from "./components/Testimonials/Testimonials";
+import Contact from "./components/Contact/Contact";
+import Footer from "./components/Footer/Footer";
+import Whatsapp from "./components/Whatsapp/Whatsapp";
+
+import TermInsurance from "./pages/TermInsurance";
+import HealthInsurance from "./pages/HealthInsurance";
+import MutualFunds from "./pages/MutualFunds";
+import RetirementPlanning from "./pages/RetirementPlanning";
+
+function HomePage() {
+  return (
+    <>
+      <Navbar />
+      <Hero />
+      <Importance />
+      <Services />
+      <WhyChooseUs />
+      <Stats />
+      <Advisor />
+      <Testimonials />
+      <Contact />
+      <Footer />
+      <Whatsapp />
+    </>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+
+      <Routes>
+
+        <Route
+          path="/"
+          element={<HomePage />}
+        />
+
+        <Route
+          path="/term-insurance"
+          element={<TermInsurance />}
+        />
+
+        <Route
+          path="/health-insurance"
+          element={<HealthInsurance />}
+        />
+
+        <Route
+          path="/mutual-funds"
+          element={<MutualFunds />}
+        />
+
+        <Route
+          path="/retirement-planning"
+          element={<RetirementPlanning />}
+        />
+
+      </Routes>
+
+    </BrowserRouter>
+  );
+}
+
+export default App;

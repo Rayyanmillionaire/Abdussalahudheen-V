@@ -1,0 +1,228 @@
+.navbar{
+  position:sticky;
+  top:15px;
+
+  width:90%;
+  max-width:1400px;
+
+  margin:auto;
+
+  height:80px;
+
+  padding:0 35px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  z-index:1000;
+
+  background:rgba(255,255,255,.75);
+
+  backdrop-filter:blur(25px);
+  -webkit-backdrop-filter:blur(25px);
+
+  border:1px solid rgba(255,255,255,.5);
+
+  border-radius:22px;
+
+  box-shadow:
+  0 10px 40px rgba(0,0,0,.08);
+
+  transition:.4s;
+}
+
+.navbar:hover{
+  box-shadow:
+  0 20px 60px rgba(0,87,217,.12);
+}
+
+/* LOGO */
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  cursor:pointer;
+}
+
+.logo-icon{
+  font-size:2rem;
+
+  color:#0057d9;
+
+  transition:.4s;
+}
+
+.logo:hover .logo-icon{
+  transform:
+  rotate(10deg)
+  scale(1.1);
+}
+
+.logo span{
+  font-size:1.2rem;
+  font-weight:800;
+
+  color:#0f172a;
+
+  letter-spacing:.3px;
+}
+
+/* NAV LINKS */
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:32px;
+
+  list-style:none;
+}
+
+.nav-links a{
+  position:relative;
+
+  text-decoration:none;
+
+  color:#334155;
+
+  font-weight:600;
+
+  transition:.3s;
+}
+
+.nav-links a:hover{
+  color:#0057d9;
+}
+
+/* Animated Underline */
+
+.nav-links a::after{
+  content:"";
+
+  position:absolute;
+
+  left:0;
+  bottom:-8px;
+
+  width:0%;
+  height:3px;
+
+  background:
+  linear-gradient(
+    90deg,
+    #0057d9,
+    #60a5fa
+  );
+
+  border-radius:50px;
+
+  transition:.4s;
+}
+
+.nav-links a:hover::after{
+  width:100%;
+}
+
+/* CONSULT BUTTON */
+
+.consult-btn{
+  position:relative;
+
+  overflow:hidden;
+
+  text-decoration:none;
+
+  background:
+  linear-gradient(
+    135deg,
+    #0057d9,
+    #2563eb
+  );
+
+  color:white;
+
+  padding:14px 26px;
+
+  border-radius:14px;
+
+  font-weight:700;
+
+  box-shadow:
+  0 12px 25px rgba(0,87,217,.20);
+
+  transition:.4s;
+}
+
+.consult-btn:hover{
+  transform:
+  translateY(-3px)
+  scale(1.03);
+
+  box-shadow:
+  0 18px 35px rgba(0,87,217,.30);
+}
+
+/* Shine Effect */
+
+.consult-btn::before{
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  left:-120%;
+
+  width:60%;
+  height:100%;
+
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.5),
+    transparent
+  );
+
+  transform:skewX(-25deg);
+
+  transition:.8s;
+}
+
+.consult-btn:hover::before{
+  left:150%;
+}
+
+/* MOBILE */
+
+@media(max-width:992px){
+
+  .navbar{
+    width:95%;
+    padding:0 20px;
+  }
+
+  .nav-links{
+    gap:18px;
+  }
+
+  .logo span{
+    font-size:1rem;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .consult-btn{
+    display:none;
+  }
+
+  .navbar{
+    height:72px;
+  }
+
+}

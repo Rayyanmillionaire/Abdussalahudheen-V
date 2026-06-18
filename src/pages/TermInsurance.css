@@ -1,0 +1,176 @@
+.ti-page{
+  background:#fff;
+  color:#0f172a;
+}
+
+.ti-hero{
+  padding:140px 8% 120px;
+  background:linear-gradient(135deg,#0057d9,#2563eb);
+  color:white;
+  position:relative;
+  overflow:hidden;
+}
+
+.ti-hero::before{
+  content:"";
+  position:absolute;
+  width:600px;
+  height:600px;
+  background:white;
+  opacity:.08;
+  border-radius:50%;
+  filter:blur(140px);
+  top:-250px;
+  right:-250px;
+}
+
+.ti-hero-content{
+  max-width:850px;
+  position:relative;
+  z-index:2;
+}
+
+.ti-hero-content span{
+  display:inline-block;
+  background:rgba(255,255,255,.15);
+  padding:10px 20px;
+  border-radius:50px;
+  margin-bottom:20px;
+}
+
+.ti-hero-content h1{
+  font-size:4rem;
+  font-weight:800;
+  margin-bottom:20px;
+}
+
+.ti-hero-content p{
+  font-size:1.2rem;
+  line-height:1.8;
+}
+
+.ti-btn{
+  display:inline-block;
+  margin-top:35px;
+  padding:16px 30px;
+  border-radius:14px;
+  text-decoration:none;
+  background:white;
+  color:#0057d9;
+  font-weight:700;
+}
+
+.ti-section{
+  padding:90px 8%;
+}
+
+.ti-section h2{
+  font-size:2.6rem;
+  margin-bottom:25px;
+}
+
+.ti-section p{
+  color:#64748b;
+  line-height:2;
+  margin-bottom:20px;
+}
+
+.ti-story,
+.ti-myth,
+.ti-faq{
+  background:white;
+  padding:35px;
+  border-radius:24px;
+  border:1px solid #e2e8f0;
+  box-shadow:0 10px 30px rgba(0,0,0,.05);
+}
+
+.ti-story h3,
+.ti-myth h3,
+.ti-faq h3{
+  color:#0057d9;
+  margin-bottom:12px;
+}
+
+.ti-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px;
+}
+
+.ti-card{
+  background:white;
+  padding:35px;
+  border-radius:24px;
+  border:1px solid #e2e8f0;
+  box-shadow:0 10px 30px rgba(0,0,0,.05);
+  transition:.3s;
+}
+
+.ti-card:hover{
+  transform:translateY(-8px);
+  border-color:#0057d9;
+}
+
+.ti-card h3{
+  color:#0057d9;
+  margin-bottom:15px;
+}
+
+.ti-list{
+  list-style:none;
+}
+
+.ti-list li{
+  padding:15px 0;
+  border-bottom:1px solid #e2e8f0;
+}
+
+.ti-cta{
+  padding:120px 8%;
+  text-align:center;
+  background:linear-gradient(135deg,#0057d9,#2563eb);
+  color:white;
+}
+
+.ti-cta h2{
+  font-size:3rem;
+  margin-bottom:20px;
+}
+
+.ti-cta p{
+  max-width:700px;
+  margin:auto;
+  margin-bottom:35px;
+  line-height:1.9;
+}
+
+.ti-btn-white{
+  display:inline-block;
+  background:white;
+  color:#0057d9;
+  text-decoration:none;
+  padding:16px 32px;
+  border-radius:14px;
+  font-weight:700;
+}
+
+@media(max-width:768px){
+
+  .ti-hero-content h1{
+    font-size:2.8rem;
+  }
+
+  .ti-grid{
+    grid-template-columns:1fr;
+  }
+
+  .ti-section h2{
+    font-size:2rem;
+  }
+
+  .ti-cta h2{
+    font-size:2.2rem;
+  }
+
+}

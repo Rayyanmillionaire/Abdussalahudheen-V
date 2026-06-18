@@ -1,0 +1,303 @@
+.health-page{
+  background:#ffffff;
+  color:#0f172a;
+}
+
+/* HERO */
+
+.health-hero{
+  padding:140px 8% 120px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #0057d9,
+    #2563eb
+  );
+
+  color:white;
+
+  position:relative;
+  overflow:hidden;
+}
+
+.health-hero::before{
+  content:"";
+
+  position:absolute;
+
+  width:600px;
+  height:600px;
+
+  background:white;
+
+  opacity:.08;
+
+  border-radius:50%;
+
+  filter:blur(140px);
+
+  top:-250px;
+  right:-250px;
+}
+
+.health-hero-content{
+  max-width:850px;
+  position:relative;
+  z-index:2;
+}
+
+.health-hero-content span{
+  display:inline-block;
+
+  background:rgba(255,255,255,.15);
+
+  padding:10px 20px;
+
+  border-radius:50px;
+
+  font-weight:600;
+
+  margin-bottom:20px;
+}
+
+.health-hero-content h1{
+  font-size:4rem;
+  margin-bottom:20px;
+  font-weight:800;
+}
+
+.health-hero-content p{
+  font-size:1.2rem;
+  line-height:1.8;
+  opacity:.95;
+}
+
+.hero-btn{
+  display:inline-block;
+
+  margin-top:35px;
+
+  padding:16px 30px;
+
+  border-radius:14px;
+
+  text-decoration:none;
+
+  background:white;
+
+  color:#0057d9;
+
+  font-weight:700;
+
+  transition:.3s;
+}
+
+.hero-btn:hover{
+  transform:translateY(-4px);
+}
+
+/* SECTIONS */
+
+.health-section{
+  padding:90px 8%;
+}
+
+.health-section h2{
+  font-size:2.6rem;
+  margin-bottom:25px;
+  color:#0f172a;
+}
+
+.health-section p{
+  color:#64748b;
+  line-height:2;
+  font-size:1.05rem;
+  margin-bottom:20px;
+}
+
+/* STORY */
+
+.story-card{
+  background:white;
+
+  padding:40px;
+
+  border-radius:30px;
+
+  border:1px solid #e2e8f0;
+
+  box-shadow:
+  0 15px 40px rgba(0,0,0,.05);
+}
+
+.story-card h3{
+  color:#0057d9;
+  margin-bottom:20px;
+}
+
+/* BENEFITS */
+
+.benefits-grid{
+  display:grid;
+
+  grid-template-columns:
+  repeat(2,1fr);
+
+  gap:25px;
+}
+
+.benefit-card{
+  background:white;
+
+  padding:35px;
+
+  border-radius:24px;
+
+  border:1px solid #e2e8f0;
+
+  box-shadow:
+  0 10px 30px rgba(0,0,0,.05);
+
+  transition:.3s;
+}
+
+.benefit-card:hover{
+  transform:translateY(-8px);
+
+  border-color:#0057d9;
+}
+
+.benefit-card h3{
+  color:#0057d9;
+  margin-bottom:15px;
+}
+
+/* LIST */
+
+.health-list{
+  list-style:none;
+}
+
+.health-list li{
+  padding:15px 0;
+
+  border-bottom:
+  1px solid #e2e8f0;
+
+  font-size:1.05rem;
+}
+
+/* MYTH */
+
+.myth-card{
+  background:#f8fbff;
+
+  padding:40px;
+
+  border-radius:24px;
+}
+
+.myth-card h3{
+  color:#0057d9;
+  margin-bottom:10px;
+}
+
+/* FAQ */
+
+.faq-item{
+  background:white;
+
+  padding:30px;
+
+  margin-bottom:20px;
+
+  border-radius:20px;
+
+  border:1px solid #e2e8f0;
+
+  box-shadow:
+  0 8px 25px rgba(0,0,0,.04);
+}
+
+.faq-item h3{
+  margin-bottom:12px;
+  color:#0f172a;
+}
+
+/* CTA */
+
+.health-cta{
+  padding:120px 8%;
+
+  text-align:center;
+
+  background:
+  linear-gradient(
+    135deg,
+    #0057d9,
+    #2563eb
+  );
+
+  color:white;
+}
+
+.health-cta h2{
+  font-size:3rem;
+  margin-bottom:20px;
+}
+
+.health-cta p{
+  max-width:700px;
+  margin:auto;
+
+  line-height:1.9;
+
+  margin-bottom:35px;
+
+  opacity:.9;
+}
+
+.cta-btn{
+  display:inline-block;
+
+  background:white;
+
+  color:#0057d9;
+
+  text-decoration:none;
+
+  padding:16px 32px;
+
+  border-radius:14px;
+
+  font-weight:700;
+
+  transition:.3s;
+}
+
+.cta-btn:hover{
+  transform:translateY(-4px);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .health-hero-content h1{
+    font-size:2.8rem;
+  }
+
+  .benefits-grid{
+    grid-template-columns:1fr;
+  }
+
+  .health-section h2{
+    font-size:2rem;
+  }
+
+  .health-cta h2{
+    font-size:2.2rem;
+  }
+
+}
