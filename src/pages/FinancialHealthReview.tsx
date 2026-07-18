@@ -61,6 +61,29 @@ export default function FinancialHealthReview() {
     const existing = JSON.parse(localStorage.getItem('crmLeads') || '[]');
     localStorage.setItem('crmLeads', JSON.stringify([...existing, { ...finalData, status: 'New Lead' }]));
     
+    // Send Email via FormSubmit
+    try {
+      await fetch("https://formsubmit.co/ajax/mailtosalahuvt@gmail.com", {
+        method: "POST",
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            _subject: `New Lead: ${finalData.clientName} - Score: ${finalData.finalScore}/100`,
+            Name: finalData.clientName,
+            Email: finalData.email,
+            Phone: finalData.mobile,
+            City: finalData.city,
+            Score: finalData.finalScore,
+            RiskLevel: finalData.riskLevel,
+            NextReview: finalData.nextReviewDate
+        })
+      });
+    } catch (error) {
+      console.error("Email send failed", error);
+    }
+
     // Send to Google Sheets via Google Apps Script
     // Replace this URL with your actual deployed Google Apps Script Web App URL
     const GOOGLE_APPS_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL || "https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec";
