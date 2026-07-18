@@ -53,15 +53,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-gray-500 mb-8 text-center md:text-left">
           <div className="bg-[#0f294d] p-4 rounded-lg">
             <p className="font-medium text-gray-400 mb-1">AMFI Registered Distributor</p>
-            <p>ARN: [TBD]</p>
+            <p>ARN: ARN-171667</p>
           </div>
           <div className="bg-[#0f294d] p-4 rounded-lg">
             <p className="font-medium text-gray-400 mb-1">IRDAI Certified Advisor</p>
-            <p>License: [TBD]</p>
+            <p>License: SHABA0000520314 | AIL9469408</p>
           </div>
           <div className="bg-[#0f294d] p-4 rounded-lg">
-            <p className="font-medium text-gray-400 mb-1">SEBI Registration</p>
-            <p>Reg No: [TBD]</p>
+            <p className="font-medium text-gray-400 mb-1">NISM Mutual Fund Advisor</p>
+            <p>Reg No: NISM-202000054390</p>
           </div>
         </div>
 

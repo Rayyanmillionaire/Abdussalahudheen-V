@@ -40,15 +40,15 @@ export default function AdvisorSection() {
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-[var(--color-secondary)]"></div>
-                  <strong>NISM Certified:</strong> [Placeholder Number]
+                  <strong>NISM Mutual Fund Advisor:</strong> NISM-202000054390
                 </li>
                 <li className="flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-[var(--color-secondary)]"></div>
-                  <strong>AMFI Registered Mutual Fund Distributor:</strong> ARN-[Placeholder]
+                  <strong>AMFI Registered Distributor:</strong> ARN-171667
                 </li>
                 <li className="flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-[var(--color-secondary)]"></div>
-                  <strong>IRDAI Certified Financial Advisor:</strong> License [Placeholder]
+                  <strong>IRDAI Certified Advisor:</strong> SHABA0000520314 | AIL9469408
                 </li>
               </ul>
             </div>
