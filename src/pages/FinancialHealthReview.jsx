@@ -41,7 +41,7 @@ export default function FinancialHealthReview() {
     setAnswers(prev => ({ ...prev, [question]: answer }));
   };
 
-  const submitReview = () => {
+  const submitReview = async () => {
     const results = calculateHealthScore(answers);
     const personalData = watch();
     
@@ -51,6 +51,29 @@ export default function FinancialHealthReview() {
     const existing = JSON.parse(localStorage.getItem('crmLeads') || '[]');
     localStorage.setItem('crmLeads', JSON.stringify([...existing, { ...finalData, status: 'New Lead' }]));
     
+    // Send Email via FormSubmit
+    try {
+      await fetch("https://formsubmit.co/ajax/mailtosalahuvt@gmail.com", {
+        method: "POST",
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            _subject: `New Lead: ${finalData.clientName} - Score: ${finalData.finalScore}/100`,
+            Name: finalData.clientName,
+            Email: finalData.email,
+            Phone: finalData.mobile,
+            City: finalData.city,
+            Score: finalData.finalScore,
+            RiskLevel: finalData.riskLevel,
+            ...answers
+        })
+      });
+    } catch (error) {
+      console.error("Email send failed", error);
+    }
+
     setReportData(finalData);
     setStep(4); // Results step
   };
