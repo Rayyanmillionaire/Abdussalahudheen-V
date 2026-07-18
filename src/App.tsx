@@ -20,6 +20,7 @@ import FinancialHealthReview from "./pages/FinancialHealthReview";
 import Dashboard from "./pages/Dashboard";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Disclaimer from "./pages/Disclaimer";
+import Calculators from "./pages/Calculators";
 
 function HomePage() {
   return (
@@ -73,6 +74,11 @@ function App() {
         <Route
           path="/financial-health-review"
           element={<FinancialHealthReview />}
+        />
+
+        <Route
+          path="/calculators"
+          element={<Calculators />}
         />
 
         <Route

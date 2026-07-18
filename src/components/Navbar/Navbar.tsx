@@ -32,6 +32,7 @@ export default function Navbar() {
             <a href="/#services" className="text-sm font-medium text-gray-700 hover:text-[var(--color-secondary)] transition">Services</a>
             <a href="/#why-us" className="text-sm font-medium text-gray-700 hover:text-[var(--color-secondary)] transition">Why Us</a>
             <Link to="/financial-health-review" className="text-sm font-medium text-[var(--color-secondary)] hover:text-[#b08f55] transition">Health Review</Link>
+            <Link to="/calculators" className="text-sm font-medium text-gray-700 hover:text-[var(--color-secondary)] transition">Calculators</Link>
             
             <a href="/#contact" className="bg-[var(--color-primary)] hover:bg-[#152e52] text-white px-5 py-2.5 rounded-full text-sm font-medium transition shadow-md">
               Consultation
@@ -52,6 +53,7 @@ export default function Navbar() {
           <a href="/#services" onClick={() => setMobileMenuOpen(false)} className="block font-medium text-gray-800">Services</a>
           <a href="/#why-us" onClick={() => setMobileMenuOpen(false)} className="block font-medium text-gray-800">Why Us</a>
           <Link to="/financial-health-review" onClick={() => setMobileMenuOpen(false)} className="block font-medium text-[var(--color-secondary)]">Health Review</Link>
+          <Link to="/calculators" onClick={() => setMobileMenuOpen(false)} className="block font-medium text-gray-800">Calculators</Link>
           <a href="/#contact" onClick={() => setMobileMenuOpen(false)} className="block font-medium text-[var(--color-primary)]">Contact</a>
         </div>
       )}
