@@ -11,13 +11,16 @@ export default function AdvisorSection() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="w-full md:w-1/2"
+            className="w-full md:w-1/2 flex justify-center md:justify-end md:pr-12"
           >
-            <img 
-              src={advisorImage} 
-              alt="Financial Advisor" 
-              className="rounded-2xl shadow-xl w-full h-[500px] object-cover"
-            />
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-secondary)] to-[var(--color-primary)] rounded-2xl blur-lg opacity-20 transform translate-x-4 translate-y-4"></div>
+              <img 
+                src={advisorImage} 
+                alt="Financial Advisor" 
+                className="relative z-10 rounded-2xl shadow-2xl w-72 h-auto object-cover border-8 border-white"
+              />
+            </div>
           </motion.div>
 
           <motion.div 
