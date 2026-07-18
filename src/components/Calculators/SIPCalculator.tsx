@@ -81,8 +81,14 @@ export default function SIPCalculator() {
           <div className="space-y-4">
             <div className="flex justify-between items-center">
               <label className="font-medium text-gray-700">Monthly Investment</label>
-              <div className="bg-gray-50 px-4 py-2 rounded-lg font-semibold text-[var(--color-primary)] border border-gray-200">
-                {formatIndianCurrency(monthlyInvestment)}
+              <div className="flex items-center bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200 focus-within:ring-2 focus-within:ring-[var(--color-secondary)]">
+                <span className="text-gray-500 font-medium mr-1">₹</span>
+                <input 
+                  type="number" 
+                  value={monthlyInvestment}
+                  onChange={(e) => setMonthlyInvestment(Number(e.target.value))}
+                  className="bg-transparent font-semibold text-[var(--color-primary)] outline-none w-24 text-right [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                />
               </div>
             </div>
             <input 
@@ -98,8 +104,14 @@ export default function SIPCalculator() {
           <div className="space-y-4">
             <div className="flex justify-between items-center">
               <label className="font-medium text-gray-700">Expected Annual Return (%)</label>
-              <div className="bg-gray-50 px-4 py-2 rounded-lg font-semibold text-[var(--color-primary)] border border-gray-200">
-                {expectedReturn}%
+              <div className="flex items-center bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200 focus-within:ring-2 focus-within:ring-[var(--color-secondary)]">
+                <input 
+                  type="number" 
+                  value={expectedReturn}
+                  onChange={(e) => setExpectedReturn(Number(e.target.value))}
+                  className="bg-transparent font-semibold text-[var(--color-primary)] outline-none w-16 text-right [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                />
+                <span className="text-gray-500 font-medium ml-1">%</span>
               </div>
             </div>
             <input 
@@ -115,8 +127,14 @@ export default function SIPCalculator() {
           <div className="space-y-4">
             <div className="flex justify-between items-center">
               <label className="font-medium text-gray-700">Time Period (Years)</label>
-              <div className="bg-gray-50 px-4 py-2 rounded-lg font-semibold text-[var(--color-primary)] border border-gray-200">
-                {years} Yr
+              <div className="flex items-center bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200 focus-within:ring-2 focus-within:ring-[var(--color-secondary)]">
+                <input 
+                  type="number" 
+                  value={years}
+                  onChange={(e) => setYears(Number(e.target.value))}
+                  className="bg-transparent font-semibold text-[var(--color-primary)] outline-none w-16 text-right [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                />
+                <span className="text-gray-500 font-medium ml-1">Yr</span>
               </div>
             </div>
             <input 

@@ -75,7 +75,10 @@ export default function TermInsuranceCalculator() {
           <div className="space-y-4 pt-4 border-t border-gray-100">
             <div className="flex justify-between items-center">
               <label className="font-medium text-gray-700">Annual Income</label>
-              <span className="font-semibold text-[var(--color-primary)]">{formatIndianCurrency(annualIncome)}</span>
+              <div className="flex items-center bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200 focus-within:ring-2 focus-within:ring-[var(--color-secondary)]">
+                <span className="text-gray-500 font-medium mr-1">₹</span>
+                <input type="number" value={annualIncome} onChange={(e) => setAnnualIncome(Number(e.target.value))} className="bg-transparent font-semibold text-[var(--color-primary)] outline-none w-28 text-right [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
+              </div>
             </div>
             <input type="range" min="300000" max="50000000" step="100000" value={annualIncome} onChange={(e) => setAnnualIncome(Number(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none accent-[var(--color-secondary)]" />
           </div>
@@ -83,7 +86,10 @@ export default function TermInsuranceCalculator() {
           <div className="space-y-4">
             <div className="flex justify-between items-center">
               <label className="font-medium text-gray-700">Outstanding Loans (Home, Auto, etc.)</label>
-              <span className="font-semibold text-red-500">{formatIndianCurrency(outstandingLoans)}</span>
+              <div className="flex items-center bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200 focus-within:ring-2 focus-within:ring-[var(--color-secondary)]">
+                <span className="text-gray-500 font-medium mr-1">₹</span>
+                <input type="number" value={outstandingLoans} onChange={(e) => setOutstandingLoans(Number(e.target.value))} className="bg-transparent font-semibold text-[var(--color-primary)] outline-none w-28 text-right [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
+              </div>
             </div>
             <input type="range" min="0" max="20000000" step="100000" value={outstandingLoans} onChange={(e) => setOutstandingLoans(Number(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none accent-red-400" />
           </div>
@@ -91,7 +97,10 @@ export default function TermInsuranceCalculator() {
           <div className="space-y-4">
             <div className="flex justify-between items-center">
               <label className="font-medium text-gray-700">Future Goals (Kids Edu, Marriage, etc.)</label>
-              <span className="font-semibold text-blue-500">{formatIndianCurrency(futureGoals)}</span>
+              <div className="flex items-center bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200 focus-within:ring-2 focus-within:ring-[var(--color-secondary)]">
+                <span className="text-gray-500 font-medium mr-1">₹</span>
+                <input type="number" value={futureGoals} onChange={(e) => setFutureGoals(Number(e.target.value))} className="bg-transparent font-semibold text-[var(--color-primary)] outline-none w-28 text-right [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
+              </div>
             </div>
             <input type="range" min="0" max="30000000" step="100000" value={futureGoals} onChange={(e) => setFutureGoals(Number(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none accent-blue-400" />
           </div>
@@ -99,7 +108,10 @@ export default function TermInsuranceCalculator() {
           <div className="space-y-4">
             <div className="flex justify-between items-center">
               <label className="font-medium text-gray-700">Existing Savings & Investments</label>
-              <span className="font-semibold text-green-500">{formatIndianCurrency(existingSavings)}</span>
+              <div className="flex items-center bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200 focus-within:ring-2 focus-within:ring-[var(--color-secondary)]">
+                <span className="text-gray-500 font-medium mr-1">₹</span>
+                <input type="number" value={existingSavings} onChange={(e) => setExistingSavings(Number(e.target.value))} className="bg-transparent font-semibold text-[var(--color-primary)] outline-none w-28 text-right [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
+              </div>
             </div>
             <input type="range" min="0" max="20000000" step="100000" value={existingSavings} onChange={(e) => setExistingSavings(Number(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none accent-green-400" />
           </div>

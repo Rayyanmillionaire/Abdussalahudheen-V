@@ -79,7 +79,10 @@ export default function RetirementCalculator() {
           <div className="space-y-4 pt-4 border-t border-gray-100">
             <div className="flex justify-between items-center">
               <label className="font-medium text-gray-700">Current Monthly Expenses</label>
-              <span className="font-semibold text-[var(--color-primary)]">{formatIndianCurrency(monthlyExpenses)}</span>
+              <div className="flex items-center bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200 focus-within:ring-2 focus-within:ring-[var(--color-secondary)]">
+                <span className="text-gray-500 font-medium mr-1">₹</span>
+                <input type="number" value={monthlyExpenses} onChange={(e) => setMonthlyExpenses(Number(e.target.value))} className="bg-transparent font-semibold text-[var(--color-primary)] outline-none w-28 text-right [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
+              </div>
             </div>
             <input type="range" min="10000" max="500000" step="5000" value={monthlyExpenses} onChange={(e) => setMonthlyExpenses(Number(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none accent-[var(--color-secondary)]" />
           </div>
@@ -87,7 +90,10 @@ export default function RetirementCalculator() {
           <div className="space-y-4">
             <div className="flex justify-between items-center">
               <label className="font-medium text-gray-700">Existing Retirement Savings</label>
-              <span className="font-semibold text-[var(--color-primary)]">{formatIndianCurrency(currentSavings)}</span>
+              <div className="flex items-center bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200 focus-within:ring-2 focus-within:ring-[var(--color-secondary)]">
+                <span className="text-gray-500 font-medium mr-1">₹</span>
+                <input type="number" value={currentSavings} onChange={(e) => setCurrentSavings(Number(e.target.value))} className="bg-transparent font-semibold text-[var(--color-primary)] outline-none w-28 text-right [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
+              </div>
             </div>
             <input type="range" min="0" max="50000000" step="100000" value={currentSavings} onChange={(e) => setCurrentSavings(Number(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none accent-[var(--color-secondary)]" />
           </div>
@@ -95,7 +101,10 @@ export default function RetirementCalculator() {
           <div className="space-y-4">
             <div className="flex justify-between items-center">
               <label className="font-medium text-gray-700">Ongoing Monthly SIP</label>
-              <span className="font-semibold text-[var(--color-primary)]">{formatIndianCurrency(monthlySIP)}</span>
+              <div className="flex items-center bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200 focus-within:ring-2 focus-within:ring-[var(--color-secondary)]">
+                <span className="text-gray-500 font-medium mr-1">₹</span>
+                <input type="number" value={monthlySIP} onChange={(e) => setMonthlySIP(Number(e.target.value))} className="bg-transparent font-semibold text-[var(--color-primary)] outline-none w-28 text-right [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
+              </div>
             </div>
             <input type="range" min="0" max="200000" step="1000" value={monthlySIP} onChange={(e) => setMonthlySIP(Number(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none accent-[var(--color-secondary)]" />
           </div>
