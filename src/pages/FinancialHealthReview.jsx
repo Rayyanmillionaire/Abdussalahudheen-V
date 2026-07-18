@@ -25,6 +25,7 @@ const personalDetailsSchema = z.object({
 export default function FinancialHealthReview() {
   const [step, setStep] = useState(1);
   const [reportData, setReportData] = useState(null);
+  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
   const reportRef = useRef(null);
 
   const { register, handleSubmit, formState: { errors }, watch } = useForm({
@@ -56,13 +57,25 @@ export default function FinancialHealthReview() {
 
   const generatePDF = async () => {
     if (!reportRef.current) return;
-    const canvas = await html2canvas(reportRef.current, { scale: 2 });
-    const imgData = canvas.toDataURL('image/png');
-    const pdf = new jsPDF('p', 'mm', 'a4');
-    const pdfWidth = pdf.internal.pageSize.getWidth();
-    const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-    pdf.save(`${reportData.clientName}-Financial-Review.pdf`);
+    try {
+      setIsGeneratingPdf(true);
+      const canvas = await html2canvas(reportRef.current, { 
+        scale: 2,
+        useCORS: true,
+        logging: true
+      });
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      pdf.save(`${reportData.clientName}-Financial-Review.pdf`);
+    } catch (err) {
+      console.error('PDF Generation Error:', err);
+      alert('There was an error generating the PDF. Please try again.');
+    } finally {
+      setIsGeneratingPdf(false);
+    }
   };
 
   return (
@@ -172,8 +185,16 @@ export default function FinancialHealthReview() {
         {step === 4 && reportData && (
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="space-y-6">
             <div className="flex justify-end">
-              <button onClick={generatePDF} className="bg-[var(--color-primary)] text-white px-6 py-2 rounded-lg flex items-center gap-2 hover:bg-[#152e52]">
-                <Download className="w-4 h-4" /> Download PDF
+              <button 
+                onClick={generatePDF} 
+                disabled={isGeneratingPdf}
+                className="bg-[var(--color-primary)] text-white px-6 py-2 rounded-lg flex items-center gap-2 hover:bg-[#152e52] disabled:opacity-50 transition"
+              >
+                {isGeneratingPdf ? (
+                  <span className="flex items-center gap-2">Generating...</span>
+                ) : (
+                  <><Download className="w-4 h-4" /> Download PDF</>
+                )}
               </button>
             </div>
             

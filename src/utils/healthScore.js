@@ -62,6 +62,9 @@ export const calculateHealthScore = (answers) => {
   };
 
   const recommendations = [];
+  if (gaps.incomeProtection === 'Needs Attention') {
+    recommendations.push('Consider securing a comprehensive Term Insurance policy to ensure your family can maintain their standard of living if your income stops.');
+  }
   if (gaps.emergencyFund === 'Needs Attention') {
     recommendations.push('Build an emergency fund covering at least 6 months of expenses.');
   }
