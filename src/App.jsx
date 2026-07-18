@@ -16,6 +16,10 @@ import TermInsurance from "./pages/TermInsurance";
 import HealthInsurance from "./pages/HealthInsurance";
 import MutualFunds from "./pages/MutualFunds";
 import RetirementPlanning from "./pages/RetirementPlanning";
+import FinancialHealthReview from "./pages/FinancialHealthReview";
+import Dashboard from "./pages/Dashboard";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Disclaimer from "./pages/Disclaimer";
 
 function HomePage() {
   return (
@@ -64,6 +68,26 @@ function App() {
         <Route
           path="/retirement-planning"
           element={<RetirementPlanning />}
+        />
+
+        <Route
+          path="/financial-health-review"
+          element={<FinancialHealthReview />}
+        />
+
+        <Route
+          path="/dashboard"
+          element={<Dashboard />}
+        />
+
+        <Route
+          path="/privacy-policy"
+          element={<PrivacyPolicy />}
+        />
+
+        <Route
+          path="/disclaimer"
+          element={<Disclaimer />}
         />
 
       </Routes>

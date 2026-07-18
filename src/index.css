@@ -1,23 +1,32 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0A1F3D;
+  --color-secondary: #C9A567;
+  --color-background: #F7F5F0;
+  --color-text-main: #1A1A1A;
+  
+  --font-heading: "Fraunces", serif;
+  --font-body: "Inter", sans-serif;
 }
 
-html{
-  scroll-behavior:smooth;
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-main);
+  font-family: var(--font-body);
 }
 
-body{
-  font-family:Arial, sans-serif;
-  background:#ffffff;
-  color:#0f172a;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
 }
 
-a{
-  text-decoration:none;
+/* Custom premium utilities */
+@utility glass {
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-#root{
-  width:100%;
+@utility soft-shadow {
+  box-shadow: 0 10px 40px -10px rgba(10, 31, 61, 0.08);
 }

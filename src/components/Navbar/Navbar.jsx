@@ -1,82 +1,60 @@
-import "./Navbar.css";
-import { FaShieldAlt } from "react-icons/fa";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { ShieldCheck, Menu, X } from "lucide-react";
 
-function Navbar() {
-  const scrollToTop = (e) => {
-    e.preventDefault();
+export default function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navClasses = `fixed w-full z-50 transition-all duration-300 ${
+    isScrolled ? "glass soft-shadow py-3" : "bg-transparent py-5"
+  }`;
 
   return (
-    <nav className="navbar">
+    <nav className={navClasses}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center">
+          
+          <Link to="/" className="flex items-center gap-2">
+            <ShieldCheck className="w-8 h-8 text-[var(--color-secondary)]" />
+            <span className="font-[var(--font-heading)] font-semibold text-2xl tracking-tight text-[var(--color-primary)]">
+              SecureLife
+            </span>
+          </Link>
 
-      <div className="logo">
-        <FaShieldAlt className="logo-icon" />
-        <span>SecureLife Advisors</span>
+          <div className="hidden md:flex items-center gap-8">
+            <a href="#services" className="text-sm font-medium text-gray-700 hover:text-[var(--color-secondary)] transition">Services</a>
+            <a href="#why-us" className="text-sm font-medium text-gray-700 hover:text-[var(--color-secondary)] transition">Why Us</a>
+            <Link to="/financial-health-review" className="text-sm font-medium text-[var(--color-secondary)] hover:text-[#b08f55] transition">Health Review</Link>
+            
+            <a href="#contact" className="bg-[var(--color-primary)] hover:bg-[#152e52] text-white px-5 py-2.5 rounded-full text-sm font-medium transition shadow-md">
+              Consultation
+            </a>
+          </div>
+
+          <div className="md:hidden flex items-center">
+            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-[var(--color-primary)]">
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+          
+        </div>
       </div>
 
-      <ul className="nav-links">
-
-        <li>
-          <a
-            href="#home"
-            onClick={scrollToTop}
-          >
-            Home
-          </a>
-        </li>
-
-        <li>
-          <a href="#importance">
-            Why Planning
-          </a>
-        </li>
-
-        <li>
-          <a href="#services">
-            Services
-          </a>
-        </li>
-
-        <li>
-          <a href="#why-us">
-            Why Us
-          </a>
-        </li>
-
-        <li>
-          <a href="#stats">
-            Stats
-          </a>
-        </li>
-
-        <li>
-          <a href="#testimonials">
-            Reviews
-          </a>
-        </li>
-
-        <li>
-          <a href="#contact">
-            Contact
-          </a>
-        </li>
-
-      </ul>
-
-      <a
-        href="#contact"
-        className="consult-btn"
-      >
-        Get Consultation
-      </a>
-
+      {mobileMenuOpen && (
+        <div className="md:hidden glass absolute top-full left-0 w-full border-t border-gray-100 py-4 px-4 flex flex-col gap-4 shadow-lg">
+          <a href="#services" onClick={() => setMobileMenuOpen(false)} className="block font-medium text-gray-800">Services</a>
+          <a href="#why-us" onClick={() => setMobileMenuOpen(false)} className="block font-medium text-gray-800">Why Us</a>
+          <Link to="/financial-health-review" onClick={() => setMobileMenuOpen(false)} className="block font-medium text-[var(--color-secondary)]">Health Review</Link>
+          <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="block font-medium text-[var(--color-primary)]">Contact</a>
+        </div>
+      )}
     </nav>
   );
 }
-
-export default Navbar;
