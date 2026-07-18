@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImage from "../../assets/hero.png";
+import heroImage from "../../assets/hero.jpg";
 
 export default function Hero() {
   return (
