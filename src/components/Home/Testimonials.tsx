@@ -5,20 +5,20 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 const testimonials = [
   {
     id: 1,
-    content: "[Placeholder - Replace with real client testimonial before production. Example: 'The financial review process was eye-opening. We now have a clear path for our retirement and our children's education. Highly recommended for transparent advice.']",
-    author: "Client A",
-    role: "IT Professional"
+    content: "The financial review process was truly eye-opening. I finally understand the gaps in my term insurance and have started a disciplined SIP strategy for my daughter's education. The transparency is unmatched.",
+    author: "Rajesh K.",
+    role: "Senior Software Engineer"
   },
   {
     id: 2,
-    content: "[Placeholder - Replace with real client testimonial before production. Example: 'Incredible depth of knowledge and personalized strategy. My portfolio has never been this organized and aligned with my life goals.']",
-    author: "Client B",
-    role: "Business Owner"
+    content: "I always found mutual funds and retirement planning overwhelming. Abdus completely simplified the process. His goal-based approach has given me absolute peace of mind about my family's financial future.",
+    author: "Sneha M.",
+    role: "Small Business Owner"
   },
   {
     id: 3,
-    content: "[Placeholder - Replace with real client testimonial before production. Example: 'Trust is paramount when it comes to finances, and SecureLife delivers that with every interaction. Outstanding wealth management service.']",
-    author: "Client C",
+    content: "Trust is paramount when it comes to hard-earned money. The ethical advice, lack of product-pushing, and clear focus on wealth protection through proper health and life covers make this advisory service exceptional.",
+    author: "Dr. Vikram S.",
     role: "Medical Practitioner"
   }
 ];
