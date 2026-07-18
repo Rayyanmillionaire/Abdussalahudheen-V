@@ -78,27 +78,9 @@ export default function FinancialHealthReview() {
     setStep(4); // Results step
   };
 
-  const generatePDF = async () => {
-    if (!reportRef.current) return;
-    try {
-      setIsGeneratingPdf(true);
-      const canvas = await html2canvas(reportRef.current, { 
-        scale: 2,
-        useCORS: true,
-        logging: true
-      });
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF('p', 'mm', 'a4');
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-      pdf.save(`${reportData.clientName}-Financial-Review.pdf`);
-    } catch (err) {
-      console.error('PDF Generation Error:', err);
-      alert('There was an error generating the PDF. Please try again.');
-    } finally {
-      setIsGeneratingPdf(false);
-    }
+  const generatePDF = () => {
+    // Native print works flawlessly with CSS and produces crisp text PDFs
+    window.print();
   };
 
   return (
