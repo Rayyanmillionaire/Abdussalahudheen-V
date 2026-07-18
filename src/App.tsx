@@ -2,13 +2,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
-import Importance from "./components/Importance/Importance";
+import TrustBar from "./components/Home/TrustBar";
 import Services from "./components/Services/Services";
 import WhyChooseUs from "./components/WhyChooseUs/WhyChooseUs";
-import Stats from "./components/Stats/Stats";
-import Advisor from "./components/Advisor/Advisor";
-import Testimonials from "./components/Testimonials/Testimonials";
-import Contact from "./components/Contact/Contact";
+import AdvisorSection from "./components/Home/AdvisorSection";
+import Testimonials from "./components/Home/Testimonials";
+import FAQ from "./components/Home/FAQ";
+import ContactForm from "./components/Home/ContactForm";
 import Footer from "./components/Footer/Footer";
 import Whatsapp from "./components/Whatsapp/Whatsapp";
 
@@ -26,13 +26,13 @@ function HomePage() {
     <>
       <Navbar />
       <Hero />
-      <Importance />
+      <TrustBar />
       <Services />
       <WhyChooseUs />
-      <Stats />
-      <Advisor />
+      <AdvisorSection />
       <Testimonials />
-      <Contact />
+      <FAQ />
+      <ContactForm />
       <Footer />
       <Whatsapp />
     </>

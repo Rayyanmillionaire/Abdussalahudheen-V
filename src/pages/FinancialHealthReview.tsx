@@ -45,33 +45,37 @@ export default function FinancialHealthReview() {
     const results = calculateHealthScore(answers);
     const personalData = watch();
     
-    const finalData = { ...personalData, ...answers, ...results, timestamp: new Date().toISOString() };
+    // Calculate Next Review Date (6 months from now)
+    const nextReview = new Date();
+    nextReview.setMonth(nextReview.getMonth() + 6);
+    
+    const finalData = { 
+      ...personalData, 
+      ...answers, 
+      ...results, 
+      timestamp: new Date().toISOString(),
+      nextReviewDate: nextReview.toLocaleDateString() 
+    };
     
     // Save to LocalStorage for Dashboard
     const existing = JSON.parse(localStorage.getItem('crmLeads') || '[]');
     localStorage.setItem('crmLeads', JSON.stringify([...existing, { ...finalData, status: 'New Lead' }]));
     
-    // Send Email via FormSubmit
+    // Send to Google Sheets via Google Apps Script
+    // Replace this URL with your actual deployed Google Apps Script Web App URL
+    const GOOGLE_APPS_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL || "https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec";
+    
     try {
-      await fetch("https://formsubmit.co/ajax/mailtosalahuvt@gmail.com", {
+      await fetch(GOOGLE_APPS_SCRIPT_URL, {
         method: "POST",
+        mode: "no-cors",
         headers: { 
             'Content-Type': 'application/json',
-            'Accept': 'application/json'
         },
-        body: JSON.stringify({
-            _subject: `New Lead: ${finalData.clientName} - Score: ${finalData.finalScore}/100`,
-            Name: finalData.clientName,
-            Email: finalData.email,
-            Phone: finalData.mobile,
-            City: finalData.city,
-            Score: finalData.finalScore,
-            RiskLevel: finalData.riskLevel,
-            ...answers
-        })
+        body: JSON.stringify(finalData)
       });
     } catch (error) {
-      console.error("Email send failed", error);
+      console.error("Google Sheets sync failed", error);
     }
 
     setReportData(finalData);
@@ -79,8 +83,13 @@ export default function FinancialHealthReview() {
   };
 
   const generatePDF = () => {
-    // Native print works flawlessly with CSS and produces crisp text PDFs
     window.print();
+  };
+
+  const openWhatsApp = () => {
+    if (!reportData) return;
+    const text = `Hi, I just completed the Financial Health Review on your platform. My score is ${reportData.finalScore}/100. I would like to schedule a consultation.`;
+    window.open(`https://wa.me/919645622444?text=${encodeURIComponent(text)}`, '_blank');
   };
 
   return (
@@ -186,10 +195,15 @@ export default function FinancialHealthReview() {
             </div>
           </motion.div>
         )}
-
         {step === 4 && reportData && (
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="space-y-6">
-            <div className="flex justify-end">
+            <div className="flex justify-end gap-4">
+              <button 
+                onClick={openWhatsApp}
+                className="bg-green-600 text-white px-6 py-2 rounded-lg flex items-center gap-2 hover:bg-green-700 transition"
+              >
+                WhatsApp Advisor
+              </button>
               <button 
                 onClick={generatePDF} 
                 disabled={isGeneratingPdf}
@@ -210,12 +224,17 @@ export default function FinancialHealthReview() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
-                <div className="bg-gray-50 p-8 rounded-xl text-center">
+                <div className="bg-gray-50 p-8 rounded-xl text-center relative overflow-hidden">
                   <p className="text-lg text-gray-600 mb-2">Health Score</p>
                   <div className="text-6xl font-[var(--font-heading)] text-[var(--color-primary)] mb-2">{reportData.finalScore}<span className="text-2xl text-gray-400">/100</span></div>
-                  <span className={`inline-block px-4 py-1 rounded-full text-sm font-medium ${reportData.status === 'Excellent' || reportData.status === 'Healthy' ? 'bg-green-100 text-green-700' : reportData.status === 'Needs Attention' ? 'bg-yellow-100 text-yellow-700' : 'bg-red-100 text-red-700'}`}>
+                  <span className={`inline-block px-4 py-1 rounded-full text-sm font-medium mb-6 ${reportData.status === 'Excellent' || reportData.status === 'Healthy' ? 'bg-green-100 text-green-700' : reportData.status === 'Needs Attention' ? 'bg-yellow-100 text-yellow-700' : 'bg-red-100 text-red-700'}`}>
                     {reportData.status}
                   </span>
+                  
+                  <div className="border-t border-gray-200 pt-6">
+                    <p className="text-sm text-gray-500">Next Recommended Review</p>
+                    <p className="font-semibold text-gray-900">{reportData.nextReviewDate}</p>
+                  </div>
                 </div>
 
                 <div className="space-y-4">
@@ -225,7 +244,7 @@ export default function FinancialHealthReview() {
                       <span className="capitalize text-gray-700">{key.replace(/([A-Z])/g, ' $1').trim()}</span>
                       <span className={`font-medium flex items-center gap-2 ${value === 'Good' ? 'text-green-600' : 'text-yellow-600'}`}>
                         {value === 'Good' ? <ShieldCheck className="w-4 h-4"/> : <AlertTriangle className="w-4 h-4"/>}
-                        {value}
+                        {value as string}
                       </span>
                     </div>
                   ))}

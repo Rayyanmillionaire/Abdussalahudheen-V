@@ -1,0 +1,31 @@
+export interface ClientLead {
+  clientName: string;
+  age: string;
+  gender: string;
+  mobile: string;
+  email: string;
+  occupation: string;
+  city: string;
+  income: string;
+  expenses: string;
+  maritalStatus: string;
+  dependents: string;
+  q1: string;
+  q2: string;
+  q3: string;
+  q4: string;
+  q5: string;
+  q6: string;
+  q7: string;
+  q8: string;
+  q9: string;
+  q10: string;
+  finalScore: number;
+  status: string;
+  crmStatus?: string;
+  riskLevel: string;
+  gaps: Record<string, string>;
+  recommendations: string[];
+  timestamp: string;
+  nextReviewDate?: string;
+}
